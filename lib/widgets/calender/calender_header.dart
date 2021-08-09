@@ -1,3 +1,4 @@
+import 'package:calender_app/widgets/backbutton.dart';
 import 'package:flutter/material.dart';
 
 class CalenderHeader extends StatelessWidget {
@@ -20,9 +21,9 @@ class CalenderHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CalenderHeaderButton(isLeft: true, onClick: this.onLeft),
+          MyBackButton(isLeft: true, onClick: this.onLeft),
           CalenderTitle(month: this.month, year: this.year),
-          CalenderHeaderButton(isLeft: false, onClick: this.onRight),
+          MyBackButton(isLeft: false, onClick: this.onRight),
         ],
       ),
     );
@@ -37,38 +38,11 @@ class CalenderTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(10),
       alignment: Alignment.center,
       child: Text(
         months[month] + " - " + year.toString(),
         style: TextStyle(fontSize: 20),
-      ),
-    );
-  }
-}
-
-class CalenderHeaderButton extends StatelessWidget {
-  void Function() onClick = () => {};
-  final bool isLeft;
-
-  CalenderHeaderButton({
-    this.isLeft = false,
-    required void Function() onClick,
-  }) {
-    this.onClick = onClick;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: this.onClick,
-      child: Container(
-        padding: EdgeInsets.all(20),
-        alignment: Alignment.topRight,
-        child: Icon(
-          IconData(this.isLeft ? 0xe092 : 0xe09b,
-              fontFamily: 'MaterialIcons', matchTextDirection: true),
-        ),
       ),
     );
   }

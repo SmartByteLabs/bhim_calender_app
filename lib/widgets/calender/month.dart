@@ -1,3 +1,4 @@
+import 'package:calender_app/widgets/calender/date.dart';
 import 'package:calender_app/widgets/calender/weeks.dart';
 import 'package:flutter/material.dart';
 
@@ -36,8 +37,23 @@ class MonthWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: Column(
-        children: this.getAllWeeks(),
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              DateWidget(txt: "M"),
+              DateWidget(txt: "T"),
+              DateWidget(txt: "W"),
+              DateWidget(txt: "T"),
+              DateWidget(txt: "F"),
+              DateWidget(txt: "S"),
+              DateWidget(txt: "S"),
+            ],
+          ),
+          ...this.getAllWeeks()
+        ],
       ),
     );
   }

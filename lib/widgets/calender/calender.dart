@@ -39,6 +39,18 @@ class _CalenderState extends State<Calender> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Color(0xFFEEEEEE), width: 1),
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: const Color(0xFF999999),
+        //     offset: Offset.zero,
+        //     blurRadius: 8,
+        //     spreadRadius: 0,
+        //   )
+        // ],
+        color: Color.fromRGBO(255, 255, 255, 1),
+      ),
       child: Column(
         children: [
           CalenderHeader(
